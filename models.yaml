@@ -1,5 +1,3 @@
-version: 2
-
 models:
   - name: some_database.table_1
     description: >
