@@ -1,0 +1,51 @@
+table name : airwrk_gcp_mart.dtc_activations_vw
+description: this table gives dtc (direct to customer), also called non d2i, activations done by field executives on any given date. when user asks for overall activations, then this table should be used to calculate the non d2i part of overall activations. this table contains data betweem date range {dtc_activations_v3_start_date} and {dtc_activations_v3_end_date}. this table is not joinable with airwrk_gcp_mart.dtc_leads_vw.
+columns:
+    source:
+        description: source/channel/source_channel through which the lead was generated
+        unique values: offline, online
+        type: varchar
+    product:
+        description: lob/product for which the leads are generated. wifi = airfiber + broadband/fiber, broadband is also called fiber.
+        unique values: fiber, postpaid, airfiber
+        type: varchar
+    role_label:
+        description: role of the field agent/person/fleet who punched/generated the lead in the system.
+        unique values: XFE, BB CHAMP, DTH PARTNER, OTHERS
+        type: varchar
+    prt_date:
+        description: date on which the lead was activated. Format: yyyy-mm-dd.
+        type: date
+    circle:
+        description: circle of the lead generation.
+        unique values: ['AP', 'NESA', 'BH', 'TN', 'DL', 'GUJ', 'HR', 'HP', 'JK', 'KE', 'KK', 'WB', 'MH', 'MP', 'MUM', 'OR', 'PB', 'RAJ', 'UPE', 'UPW']
+        type: varchar
+    tot:
+        description: total activation done by field executive/fleet
+        type: bigint
+
+table name : airwrk_gcp_mart.dtc_leads_vw
+description: this table gives dtc (direct to customer), also called non d2i, laeds done by field executives on any given date. when user asks for overall leads, then this table should be used to calculate the non d2i part of overall leads. this table contains data betweem date range {dtc_leads_start_date} and {dtc_leads_end_date}. this table is not joinable with airwrk_gcp_mart.dtc_activations_vw.
+columns:
+    source:
+        description: source/channel/source_channel through which the lead was generated
+        unique values: offline, online
+        type: varchar
+    product:
+        description: lob/product for which the leads are generated. wifi = airfiber + broadband/fiber, broadband is also called fiber.
+        unique values: postpaid, airfiber, broadband, black, others
+        type: varchar
+    role_label:
+        description: role of the field agent/person/fleet who punched/generated the lead in the system.
+        unique values: XFE, BB CHAMP, DTH PARTNER, OTHERS
+        type: varchar
+    prt_date:
+        description: date of the lead creation/generation. Format: yyyy-mm-dd
+        type: date
+    circle:
+        description: circle of the lead generation.
+        unique values: ['AP', 'NESA', 'BH', 'TN', 'DL', 'GUJ', 'HR', 'HP', 'JK', 'KE', 'KK', 'WB', 'MH', 'MP', 'MUM', 'OR', 'PB', 'RAJ', 'UPE', 'UPW']
+        type: varchar
+    leads:
+        description: number of leads punched/generated on a given date
+        type: bigint
