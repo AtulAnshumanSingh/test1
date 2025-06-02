@@ -1,5 +1,5 @@
 table name : airwrk_gcp_mart.dtc_activations_vw
-description: this table gives dtc (direct to customer), also called non d2i, activations done by field executives on any given date. when user asks for overall activations, then this table should be used to calculate the non d2i part of overall activations. this table contains data betweem date range {dtc_activations_v3_start_date} and {dtc_activations_v3_end_date}. this table is not joinable with airwrk_gcp_mart.dtc_leads_vw.
+description: this table gives dtc (direct to customer), also called non d2i, activations done by field executives on any given date. when user asks for overall activations, then this table should be used to calculate the non d2i part of overall activations.
 columns:
     source:
         description: source/channel/source_channel through which the lead was generated
@@ -25,7 +25,7 @@ columns:
         type: bigint
 
 table name : airwrk_gcp_mart.dtc_leads_vw
-description: this table gives dtc (direct to customer), also called non d2i, laeds done by field executives on any given date. when user asks for overall leads, then this table should be used to calculate the non d2i part of overall leads. this table contains data betweem date range {dtc_leads_start_date} and {dtc_leads_end_date}. this table is not joinable with airwrk_gcp_mart.dtc_activations_vw.
+description: this table gives dtc (direct to customer), also called non d2i, laeds done by field executives on any given date. when user asks for overall leads, then this table should be used to calculate the non d2i part of overall leads.
 columns:
     source:
         description: source/channel/source_channel through which the lead was generated
