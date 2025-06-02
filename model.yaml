@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: some_database.table_1
+    description: >
+      This model selects and transforms data from the prepaid and postpaid active base table, filtering for records from two days ago.
+    columns:
+      - name: subscriber_id
+        description: "Unique identifier for the subscriber."
+      - name: msisdn
+        description: "MSISDN"
+      - name: service_type
+        description: "Type of service the subscriber is using."
+      - name: service_class_id
+        description: "Identifier for the service class."
+      - name: subs_activation_date
+        description: "Date when the subscriber was activated."
+      - name: event_date
+        description: "Date of the event."
+      - name: circle_id
+        description: "Identifier for the circle"
